@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: archivos
+Version: 0.0.1
+Summary: Molecular structure tools
+Author: Diana
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# archivos
+
+Utilities and modules for generating molecular/graphite structures.
+
+Install editable for development:
+
+```bash
+source venv/bin/activate
+pip install -e .
+```
