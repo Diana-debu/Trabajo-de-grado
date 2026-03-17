@@ -1,6 +1,6 @@
 import makegraphitics as mg
 
-flake_radius = 25
+flake_radius = 10
 layout = [1, 1, 1]  # make a 1x1x1 array of flakes
 
 motif = mg.molecules.Hexagon_Graphene(flake_radius)
