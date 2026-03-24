@@ -22,11 +22,11 @@ def calc_dist(a, b):
     return math.sqrt((a.x-b.x)**2 + (a.y-b.y)**2 + (a.z-b.z)**2)
 
 # =====================================================================
-# PASO 1: GENERACIÓN GEOMÉTRICA CON MAKE-GRAPHITICS
+# PASO 1: GENERACIÓN CON MAKE-GRAPHITICS
 # =====================================================================
 print("1. Generando molécula de GO con make-graphitics...")
 
-flake_radius = 10  # Radio del flake (5 es un tamaño moderado para pruebas, 10 es grande)
+flake_radius = 10  # Radio del flake 
 layout = [1, 1, 1] 
 
 motif = mg.molecules.Hexagon_Graphene(flake_radius)

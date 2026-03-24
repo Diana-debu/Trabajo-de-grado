@@ -51,11 +51,11 @@ timestep        0.5
 
 dump            1 all custom 1000 go_flake_relaxed.lammpstrj id type q x y z
 
-# IMPORTANTE: Como es un flake (no infinito), relajamos en NVT (Volumen Constante)
-# Si usamos NPT, la caja intentará encogerse sobre el vacío y colapsará.
+
+.
 fix             1 all nvt temp 300 300 50
 thermo          100
 thermo_style    custom step temp pe ke press
 run             50000
 
-print "Simulación del Flake Completada con CVFF"
+print "Simulacion del Flake Completada con CVFF"
