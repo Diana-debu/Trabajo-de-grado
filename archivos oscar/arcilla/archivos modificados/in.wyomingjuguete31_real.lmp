@@ -1,0 +1,86 @@
+# variable        NSTEPS          equal 100000
+
+# variable        THERMO_FREQ     equal 200
+
+# variable        DUMP_FREQ       equal 100
+
+variable        TEMP            equal 300.000000
+
+variable        PRES            equal 1.000000
+
+variable        TAU_T           equal 100.000000
+
+variable        TAU_P           equal 500.000000
+
+ 
+
+units           real
+
+boundary        p p p
+
+atom_style      full
+
+bond_style      harmonic
+
+angle_style     harmonic
+
+pair_style lj/cut/coul/long 10.0
+
+kspace_style pppm 1.0e-4
+
+
+
+ 
+
+read_data dump.unitcell
+
+# change_box   all triclinic
+
+# replicate 2 2 2
+
+
+
+
+# pair_coeff      * *
+
+ 
+neighbor        1.0 bin
+ 
+
+ 
+
+ 
+
+# velocity        all create ${TEMP} 777573
+
+fix             1 all npt temp ${TEMP} ${TEMP} ${TAU_T} iso ${PRES} ${PRES} ${TAU_P}
+
+# fix             1 all nvt temp ${TEMP} ${TEMP} ${TAU_T}
+
+ 
+
+# group O type 1
+
+# group Si type 2
+
+# group B type 3
+
+ 
+# Configuración del dump
+dump myDump all custom 25 dump.lammpstrj id type element x y z vx vy vz
+dump_modify myDump element Al Si O O O O O Mg H Al Na
+# dump <ID> <group-ID> <style> <N> <filename> <attributes>
+ 
+
+thermo_style    custom step temp pe ke etotal press vol lx ly lz
+
+thermo          1
+
+restart         25000 dpgen.restart
+
+# write_data dump.unitcell
+
+timestep        1.0
+
+run            50000
+
